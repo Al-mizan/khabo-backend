@@ -7,7 +7,7 @@ model ProviderProfiles {
     address         String   @db.VarChar(500)
     opening_time    DateTime @db.Time
     closing_time    DateTime @db.Time
-    is_open         Boolean  @default(false)
+    is_open         Boolean  @default(true)
     logo_url        String?  @db.Text
     banner_url      String?  @db.Text
     rating_avg      Float    @default(0.0)
