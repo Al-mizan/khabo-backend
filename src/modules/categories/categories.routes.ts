@@ -7,6 +7,7 @@ import { CategoriesController } from "./categories.controller";
 const router = Router();
 
 router.post("/", logger, auth(UserRole.ADMIN, UserRole.PROVIDER), CategoriesController.createCategories);
+router.patch("/:categoryId", logger, auth(UserRole.ADMIN, UserRole.PROVIDER), CategoriesController.updateCategories);
 
 
 export const CategoriesRoutes: Router = router;

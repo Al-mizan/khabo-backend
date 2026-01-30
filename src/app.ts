@@ -6,9 +6,9 @@ import { auth } from './lib/auth';
 import { notFoundRoute } from './middleware/notFoundRoute';
 import { providersRoutes } from './modules/providers/providers.routes';
 import { userRoutes } from './modules/user/user.routes';
-import { mealsRoutes } from './modules/meals/meals.routes';
 import { CategoriesRoutes } from './modules/categories/categories.routes';
 import { errorHandler } from './middleware/globalErrorHandler';
+import { ordersRoutes } from './modules/orders/orders.routes';
 
 const app: Application = express();
 
@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 app.all('/api/auth/{*any}', toNodeHandler(auth));
 app.use('/api/users', userRoutes);
 app.use('/api/providers', providersRoutes);
-app.use('/api/meals', mealsRoutes);
 app.use('/api/categories', CategoriesRoutes);
+app.use('/api/orders', ordersRoutes);
 
 
 // if there is no matching route

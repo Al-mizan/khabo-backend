@@ -7,7 +7,15 @@ const createCategories = (data: CategoriesUncheckedCreateInput) => {
     });
 }
 
+const updateCategories = (data: CategoriesUncheckedCreateInput, id: string) => {
+    return prisma.categories.update({
+        where: { id },
+        data,
+    });
+};
+
 export const CategoriesService = {
     createCategories,
-    
+    updateCategories,
+
 };

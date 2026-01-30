@@ -1,4 +1,4 @@
-import { ProviderProfilesUncheckedCreateInput } from "../../../prisma/generated/prisma/models";
+import { MealsUncheckedCreateInput, ProviderProfilesUncheckedCreateInput } from "../../../prisma/generated/prisma/models";
 import parseTimeString from "../../helper/parseTimeString";
 import { prisma } from "../../lib/prisma";
 
@@ -41,9 +41,44 @@ const createProviderProfile = async (data: ProviderProfilesUncheckedCreateInput)
     });
 };
 
+const createMeal = async (data: MealsUncheckedCreateInput) => {
+    return await prisma.meals.create({
+        data,
+    })
+}
+
+// have to perform pagination and filters later
+const getMeals = async () => {
+    return await prisma.meals.findMany();
+}
+
+const getMealById = async (mealId: string) => {
+    return await prisma.meals.findFirstOrThrow({
+        where: { id: mealId },
+    });
+}
+
+const updateMeal = async (id: string, data: Partial<MealsUncheckedCreateInput>) => {
+    return await prisma.meals.update({
+        where: { id },
+        data,
+    });
+};
+
+const deleteMeal = async (id: string) => {
+    return await prisma.meals.delete({
+        where: { id },
+    });
+};
 
 export const ProvidersService = {
     getAllProviders,
     getProviderById,
     createProviderProfile,
+    createMeal,
+    getMeals,
+    getMealById,
+    updateMeal,
+    deleteMeal,
+
 };
