@@ -14,6 +14,25 @@ const getAllProviders = async (req: Request, res: Response, next: NextFunction) 
     }
 };
 
+const getProviderById = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const {id} = req.params;
+        if(!id) {
+            throw new Error("Provider ID is required");
+        }
+        const result = await ProvidersService.getProviderById(id as string);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+
+    } catch (err) {
+        next(err);
+    }
+}; 
+
 export const ProvidersController = {
     getAllProviders,
+    getProviderById,
+    
 };

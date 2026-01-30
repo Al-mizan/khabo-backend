@@ -6,7 +6,7 @@ model User {
     image           String?
     createdAt       DateTime          @default(now())
     updatedAt       DateTime          @updatedAt
-    role            String            @default("CUSTOMER")
+    role            String            @default("CUSTOMER") // "PROVIDER"
     phone           String?
     status          String            @default("ACTIVATE")
     address         String?

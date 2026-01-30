@@ -6,6 +6,7 @@ import { auth } from './lib/auth';
 import errorHandler from './middleware/globalErrorHandler';
 import { notFoundRoute } from './middleware/notFoundRoute';
 import { providersRoutes } from './modules/providers/providers.routes';
+import { userRoutes } from './modules/user/user.routes';
 
 const app: Application = express();
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.all('/api/auth/{*any}', toNodeHandler(auth));
+app.use('/api/user', userRoutes);
 app.use('/api/providers', providersRoutes);
 
 

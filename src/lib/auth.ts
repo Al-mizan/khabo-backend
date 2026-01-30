@@ -192,21 +192,21 @@ export const auth = betterAuth({
       clientSecret: GOOGLE_CLIENT_SECRET as string,
     },
   },
-  emailVerification: {
-    sendOnSignUp: true,
-    autoSignInAfterVerification: true,
-    sendVerificationEmail: async ({ user, url, token }, request) => {
-      try {
-        await sendEmail({
-          to: user.email,
-          name: user.name,
-          subject: "Verify your email address",
-          verificationUrl: url,
-        });
-      } catch (error) {
-        console.error(error);
-        throw new Error("Failed to send verification email.");
-      }
-    },
-  },
+  // emailVerification: {
+  //   sendOnSignUp: true,
+  //   autoSignInAfterVerification: true,
+  //   sendVerificationEmail: async ({ user, url, token }, request) => {
+  //     try {
+  //       await sendEmail({
+  //         to: user.email,
+  //         name: user.name,
+  //         subject: "Verify your email address",
+  //         verificationUrl: url,
+  //       });
+  //     } catch (error) {
+  //       console.error(error);
+  //       throw new Error("Failed to send verification email.");
+  //     }
+  //   },
+  // },
 });
