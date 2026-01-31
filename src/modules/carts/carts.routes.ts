@@ -6,6 +6,9 @@ import { CartsController } from "./carts.controller";
 
 const router = Router();
 
+
 router.post("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.createCart);
+router.patch("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.updateCart);
+
 
 export const cartsRoutes: Router = router;
