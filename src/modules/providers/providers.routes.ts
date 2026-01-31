@@ -16,6 +16,6 @@ router.delete("/meals/:mealId", logger, auth(UserRole.PROVIDER), ProvidersContro
 
 router.post("/provider-profile", logger, auth(UserRole.PROVIDER), ProvidersController.createProviderProfile);
 router.get("/:id", logger, ProvidersController.getProviderById);
-// router.patch("orders/:id", logger, auth(UserRole.PROVIDER),);
+router.patch("/orders/:orderId", logger, auth(UserRole.PROVIDER), ProvidersController.updateOrderStatus);
 
 export const providersRoutes: Router = router;

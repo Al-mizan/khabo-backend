@@ -1,4 +1,5 @@
 import { MealsUncheckedCreateInput, ProviderProfilesUncheckedCreateInput } from "../../../prisma/generated/prisma/models";
+import { OrderStatus, PaymentStatus } from "../../../prisma/generated/prisma/enums";
 import parseTimeString from "../../helper/parseTimeString";
 import { prisma } from "../../lib/prisma";
 
@@ -71,6 +72,17 @@ const deleteMeal = async (id: string) => {
     });
 };
 
+const updateOrderStatus = async (orderId: string, data: { status?: OrderStatus, payment_status?: PaymentStatus }) => {
+    const updateData: { status?: OrderStatus; payment_status?: PaymentStatus } = {};
+    if (data.status) updateData.status = data.status;
+    if (data.payment_status) updateData.payment_status = data.payment_status;
+
+    return await prisma.orders.update({
+        where: { id: orderId },
+        data: updateData,
+    });
+};
+
 export const ProvidersService = {
     getAllProviders,
     getProviderById,
@@ -80,5 +92,5 @@ export const ProvidersService = {
     getMealById,
     updateMeal,
     deleteMeal,
-
+    updateOrderStatus,
 };

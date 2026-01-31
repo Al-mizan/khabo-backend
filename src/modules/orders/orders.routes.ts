@@ -7,6 +7,8 @@ import { OrdersController } from "./orders.controller";
 const router = Router();
 
 router.post("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), OrdersController.createOrder);
+router.get("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), OrdersController.getOrder);
+router.get("/:order_id", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), OrdersController.getOrderNyId);
 
 
 export const ordersRoutes: Router = router;

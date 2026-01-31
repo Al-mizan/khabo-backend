@@ -29,20 +29,20 @@ export type DietaryType = (typeof DietaryType)[keyof typeof DietaryType]
 
 
 export const OrderStatus = {
-  pending: 'pending',
-  confirmed: 'confirmed',
-  preparing: 'preparing',
-  delivered: 'delivered',
-  cancelled: 'cancelled'
+  PENDING: 'PENDING',
+  PREPARING: 'PREPARING',
+  ON_THE_WAY: 'ON_THE_WAY',
+  DELIVERED: 'DELIVERED',
+  CANCELLED: 'CANCELLED'
 } as const
 
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
 
 
 export const PaymentStatus = {
-  paid: 'paid',
-  unpaid: 'unpaid',
-  refunded: 'refunded'
+  PAID: 'PAID',
+  UNPAID: 'UNPAID',
+  REFUNDED: 'REFUNDED'
 } as const
 
 export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]

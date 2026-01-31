@@ -5,8 +5,8 @@ model Orders {
     provider_id      String
     provider         User          @relation("ProviderOrders", fields: [provider_id], references: [id])
     total_amount     Float         @default(0) @db.DoublePrecision
-    status           OrderStatus   @default(pending)
-    payment_status   PaymentStatus @default(unpaid)
+    status           OrderStatus   @default(PENDING)
+    payment_status   PaymentStatus @default(UNPAID)
     delivery_address String        @db.VarChar(500)
     created_at       DateTime      @default(now())
     updated_at       DateTime      @updatedAt
@@ -17,20 +17,20 @@ model Orders {
 }
 
 enum OrderStatus {
-    pending
-    confirmed
-    preparing
-    delivered
-    cancelled
+    PENDING     // order placed
+    PREPARING   // restaurant cooking
+    ON_THE_WAY  // rider moving to customer
+    DELIVERED
+    CANCELLED
 }
 
 enum PaymentStatus {
-    paid
-    unpaid
-    refunded
+    PAID
+    UNPAID
+    REFUNDED
 }
 
-// payment_method (cash | card | bkash | nagad)  will be use in future updates apadoto cash on delivery
+// payment_method (cash | card | bkash | nagad)  will be use in future updates, apadoto cash on delivery
 
 model OrderItems {
     id               String @id @default(uuid())
