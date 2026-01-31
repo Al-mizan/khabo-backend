@@ -11,6 +11,7 @@ import { errorHandler } from './middleware/globalErrorHandler';
 import { ordersRoutes } from './modules/orders/orders.routes';
 import { adminRoutes } from './modules/admin/admin.routes';
 import { cartsRoutes } from './modules/carts/carts.routes';
+import { mealsRoutes } from './modules/meals/meals.routes';
 
 const app: Application = express();
 
@@ -30,6 +31,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/providers', providersRoutes);
 app.use('/api/categories', CategoriesRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/meals', mealsRoutes);
 app.use('/api/carts', cartsRoutes);
 app.use('/api/orders', ordersRoutes);
 

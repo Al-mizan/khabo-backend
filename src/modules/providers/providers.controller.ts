@@ -74,9 +74,7 @@ const createMeal = async (req: Request, res: Response, next: NextFunction) => {
 
 const getMeals = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        console.log("lol")
         const result = await ProvidersService.getMeals();
-        console.log("lol2")
         res.status(200).json({
             success: true,
             data: result,
