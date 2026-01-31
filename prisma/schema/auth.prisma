@@ -8,7 +8,7 @@ model User {
     updatedAt       DateTime          @updatedAt
     role            String            @default("CUSTOMER") // "PROVIDER"
     phone           String?
-    status          String            @default("ACTIVATE")
+    status          String            @default("ACTIVATE") // SUSPENDED, DEACTIVATED
     address         String?
     sessions        Session[]
     accounts        Account[]

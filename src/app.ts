@@ -9,6 +9,7 @@ import { userRoutes } from './modules/user/user.routes';
 import { CategoriesRoutes } from './modules/categories/categories.routes';
 import { errorHandler } from './middleware/globalErrorHandler';
 import { ordersRoutes } from './modules/orders/orders.routes';
+import { adminRoutes } from './modules/admin/admin.routes';
 
 const app: Application = express();
 
@@ -28,6 +29,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/providers', providersRoutes);
 app.use('/api/categories', CategoriesRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/admin', adminRoutes);
 
 
 // if there is no matching route

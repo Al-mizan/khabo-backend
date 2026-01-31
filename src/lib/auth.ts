@@ -159,7 +159,7 @@ export const auth = betterAuth({
       },
       status: {
         type: "string",
-        defaultValue: "ACTIVATE", // suspend/activate
+        defaultValue: "ACTIVATE",
         required: true,
       },
       address: {
