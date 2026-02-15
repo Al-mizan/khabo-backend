@@ -27,10 +27,16 @@ export type AggregateProviderProfiles = {
 }
 
 export type ProviderProfilesAvgAggregateOutputType = {
+  discount_percent: number | null
+  discount_thereshold: number | null
+  freeDeliveryAmount: number | null
   rating_avg: number | null
 }
 
 export type ProviderProfilesSumAggregateOutputType = {
+  discount_percent: number | null
+  discount_thereshold: number | null
+  freeDeliveryAmount: number | null
   rating_avg: number | null
 }
 
@@ -42,7 +48,10 @@ export type ProviderProfilesMinAggregateOutputType = {
   address: string | null
   opening_time: Date | null
   closing_time: Date | null
+  discount_percent: number | null
+  discount_thereshold: number | null
   is_open: boolean | null
+  freeDeliveryAmount: number | null
   logo_url: string | null
   banner_url: string | null
   rating_avg: number | null
@@ -58,7 +67,10 @@ export type ProviderProfilesMaxAggregateOutputType = {
   address: string | null
   opening_time: Date | null
   closing_time: Date | null
+  discount_percent: number | null
+  discount_thereshold: number | null
   is_open: boolean | null
+  freeDeliveryAmount: number | null
   logo_url: string | null
   banner_url: string | null
   rating_avg: number | null
@@ -74,7 +86,10 @@ export type ProviderProfilesCountAggregateOutputType = {
   address: number
   opening_time: number
   closing_time: number
+  discount_percent: number
+  discount_thereshold: number
   is_open: number
+  freeDeliveryAmount: number
   logo_url: number
   banner_url: number
   rating_avg: number
@@ -85,10 +100,16 @@ export type ProviderProfilesCountAggregateOutputType = {
 
 
 export type ProviderProfilesAvgAggregateInputType = {
+  discount_percent?: true
+  discount_thereshold?: true
+  freeDeliveryAmount?: true
   rating_avg?: true
 }
 
 export type ProviderProfilesSumAggregateInputType = {
+  discount_percent?: true
+  discount_thereshold?: true
+  freeDeliveryAmount?: true
   rating_avg?: true
 }
 
@@ -100,7 +121,10 @@ export type ProviderProfilesMinAggregateInputType = {
   address?: true
   opening_time?: true
   closing_time?: true
+  discount_percent?: true
+  discount_thereshold?: true
   is_open?: true
+  freeDeliveryAmount?: true
   logo_url?: true
   banner_url?: true
   rating_avg?: true
@@ -116,7 +140,10 @@ export type ProviderProfilesMaxAggregateInputType = {
   address?: true
   opening_time?: true
   closing_time?: true
+  discount_percent?: true
+  discount_thereshold?: true
   is_open?: true
+  freeDeliveryAmount?: true
   logo_url?: true
   banner_url?: true
   rating_avg?: true
@@ -132,7 +159,10 @@ export type ProviderProfilesCountAggregateInputType = {
   address?: true
   opening_time?: true
   closing_time?: true
+  discount_percent?: true
+  discount_thereshold?: true
   is_open?: true
+  freeDeliveryAmount?: true
   logo_url?: true
   banner_url?: true
   rating_avg?: true
@@ -235,7 +265,10 @@ export type ProviderProfilesGroupByOutputType = {
   address: string
   opening_time: Date
   closing_time: Date
+  discount_percent: number
+  discount_thereshold: number
   is_open: boolean
+  freeDeliveryAmount: number
   logo_url: string | null
   banner_url: string | null
   rating_avg: number
@@ -274,7 +307,10 @@ export type ProviderProfilesWhereInput = {
   address?: Prisma.StringFilter<"ProviderProfiles"> | string
   opening_time?: Prisma.DateTimeFilter<"ProviderProfiles"> | Date | string
   closing_time?: Prisma.DateTimeFilter<"ProviderProfiles"> | Date | string
+  discount_percent?: Prisma.FloatFilter<"ProviderProfiles"> | number
+  discount_thereshold?: Prisma.FloatFilter<"ProviderProfiles"> | number
   is_open?: Prisma.BoolFilter<"ProviderProfiles"> | boolean
+  freeDeliveryAmount?: Prisma.FloatFilter<"ProviderProfiles"> | number
   logo_url?: Prisma.StringNullableFilter<"ProviderProfiles"> | string | null
   banner_url?: Prisma.StringNullableFilter<"ProviderProfiles"> | string | null
   rating_avg?: Prisma.FloatFilter<"ProviderProfiles"> | number
@@ -291,7 +327,10 @@ export type ProviderProfilesOrderByWithRelationInput = {
   address?: Prisma.SortOrder
   opening_time?: Prisma.SortOrder
   closing_time?: Prisma.SortOrder
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
   is_open?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   logo_url?: Prisma.SortOrderInput | Prisma.SortOrder
   banner_url?: Prisma.SortOrderInput | Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
@@ -311,7 +350,10 @@ export type ProviderProfilesWhereUniqueInput = Prisma.AtLeast<{
   address?: Prisma.StringFilter<"ProviderProfiles"> | string
   opening_time?: Prisma.DateTimeFilter<"ProviderProfiles"> | Date | string
   closing_time?: Prisma.DateTimeFilter<"ProviderProfiles"> | Date | string
+  discount_percent?: Prisma.FloatFilter<"ProviderProfiles"> | number
+  discount_thereshold?: Prisma.FloatFilter<"ProviderProfiles"> | number
   is_open?: Prisma.BoolFilter<"ProviderProfiles"> | boolean
+  freeDeliveryAmount?: Prisma.FloatFilter<"ProviderProfiles"> | number
   logo_url?: Prisma.StringNullableFilter<"ProviderProfiles"> | string | null
   banner_url?: Prisma.StringNullableFilter<"ProviderProfiles"> | string | null
   rating_avg?: Prisma.FloatFilter<"ProviderProfiles"> | number
@@ -328,7 +370,10 @@ export type ProviderProfilesOrderByWithAggregationInput = {
   address?: Prisma.SortOrder
   opening_time?: Prisma.SortOrder
   closing_time?: Prisma.SortOrder
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
   is_open?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   logo_url?: Prisma.SortOrderInput | Prisma.SortOrder
   banner_url?: Prisma.SortOrderInput | Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
@@ -352,7 +397,10 @@ export type ProviderProfilesScalarWhereWithAggregatesInput = {
   address?: Prisma.StringWithAggregatesFilter<"ProviderProfiles"> | string
   opening_time?: Prisma.DateTimeWithAggregatesFilter<"ProviderProfiles"> | Date | string
   closing_time?: Prisma.DateTimeWithAggregatesFilter<"ProviderProfiles"> | Date | string
+  discount_percent?: Prisma.FloatWithAggregatesFilter<"ProviderProfiles"> | number
+  discount_thereshold?: Prisma.FloatWithAggregatesFilter<"ProviderProfiles"> | number
   is_open?: Prisma.BoolWithAggregatesFilter<"ProviderProfiles"> | boolean
+  freeDeliveryAmount?: Prisma.FloatWithAggregatesFilter<"ProviderProfiles"> | number
   logo_url?: Prisma.StringNullableWithAggregatesFilter<"ProviderProfiles"> | string | null
   banner_url?: Prisma.StringNullableWithAggregatesFilter<"ProviderProfiles"> | string | null
   rating_avg?: Prisma.FloatWithAggregatesFilter<"ProviderProfiles"> | number
@@ -367,7 +415,10 @@ export type ProviderProfilesCreateInput = {
   address: string
   opening_time: Date | string
   closing_time: Date | string
+  discount_percent?: number
+  discount_thereshold?: number
   is_open?: boolean
+  freeDeliveryAmount?: number
   logo_url?: string | null
   banner_url?: string | null
   rating_avg?: number
@@ -384,7 +435,10 @@ export type ProviderProfilesUncheckedCreateInput = {
   address: string
   opening_time: Date | string
   closing_time: Date | string
+  discount_percent?: number
+  discount_thereshold?: number
   is_open?: boolean
+  freeDeliveryAmount?: number
   logo_url?: string | null
   banner_url?: string | null
   rating_avg?: number
@@ -399,7 +453,10 @@ export type ProviderProfilesUpdateInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -416,7 +473,10 @@ export type ProviderProfilesUncheckedUpdateInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -432,7 +492,10 @@ export type ProviderProfilesCreateManyInput = {
   address: string
   opening_time: Date | string
   closing_time: Date | string
+  discount_percent?: number
+  discount_thereshold?: number
   is_open?: boolean
+  freeDeliveryAmount?: number
   logo_url?: string | null
   banner_url?: string | null
   rating_avg?: number
@@ -447,7 +510,10 @@ export type ProviderProfilesUpdateManyMutationInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -463,7 +529,10 @@ export type ProviderProfilesUncheckedUpdateManyInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -484,7 +553,10 @@ export type ProviderProfilesCountOrderByAggregateInput = {
   address?: Prisma.SortOrder
   opening_time?: Prisma.SortOrder
   closing_time?: Prisma.SortOrder
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
   is_open?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
@@ -493,6 +565,9 @@ export type ProviderProfilesCountOrderByAggregateInput = {
 }
 
 export type ProviderProfilesAvgOrderByAggregateInput = {
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
 }
 
@@ -504,7 +579,10 @@ export type ProviderProfilesMaxOrderByAggregateInput = {
   address?: Prisma.SortOrder
   opening_time?: Prisma.SortOrder
   closing_time?: Prisma.SortOrder
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
   is_open?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
@@ -520,7 +598,10 @@ export type ProviderProfilesMinOrderByAggregateInput = {
   address?: Prisma.SortOrder
   opening_time?: Prisma.SortOrder
   closing_time?: Prisma.SortOrder
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
   is_open?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   logo_url?: Prisma.SortOrder
   banner_url?: Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
@@ -529,6 +610,9 @@ export type ProviderProfilesMinOrderByAggregateInput = {
 }
 
 export type ProviderProfilesSumOrderByAggregateInput = {
+  discount_percent?: Prisma.SortOrder
+  discount_thereshold?: Prisma.SortOrder
+  freeDeliveryAmount?: Prisma.SortOrder
   rating_avg?: Prisma.SortOrder
 }
 
@@ -571,7 +655,10 @@ export type ProviderProfilesCreateWithoutUserInput = {
   address: string
   opening_time: Date | string
   closing_time: Date | string
+  discount_percent?: number
+  discount_thereshold?: number
   is_open?: boolean
+  freeDeliveryAmount?: number
   logo_url?: string | null
   banner_url?: string | null
   rating_avg?: number
@@ -586,7 +673,10 @@ export type ProviderProfilesUncheckedCreateWithoutUserInput = {
   address: string
   opening_time: Date | string
   closing_time: Date | string
+  discount_percent?: number
+  discount_thereshold?: number
   is_open?: boolean
+  freeDeliveryAmount?: number
   logo_url?: string | null
   banner_url?: string | null
   rating_avg?: number
@@ -617,7 +707,10 @@ export type ProviderProfilesUpdateWithoutUserInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -632,7 +725,10 @@ export type ProviderProfilesUncheckedUpdateWithoutUserInput = {
   address?: Prisma.StringFieldUpdateOperationsInput | string
   opening_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   closing_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  discount_percent?: Prisma.FloatFieldUpdateOperationsInput | number
+  discount_thereshold?: Prisma.FloatFieldUpdateOperationsInput | number
   is_open?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  freeDeliveryAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   logo_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rating_avg?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -650,7 +746,10 @@ export type ProviderProfilesSelect<ExtArgs extends runtime.Types.Extensions.Inte
   address?: boolean
   opening_time?: boolean
   closing_time?: boolean
+  discount_percent?: boolean
+  discount_thereshold?: boolean
   is_open?: boolean
+  freeDeliveryAmount?: boolean
   logo_url?: boolean
   banner_url?: boolean
   rating_avg?: boolean
@@ -667,7 +766,10 @@ export type ProviderProfilesSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   address?: boolean
   opening_time?: boolean
   closing_time?: boolean
+  discount_percent?: boolean
+  discount_thereshold?: boolean
   is_open?: boolean
+  freeDeliveryAmount?: boolean
   logo_url?: boolean
   banner_url?: boolean
   rating_avg?: boolean
@@ -684,7 +786,10 @@ export type ProviderProfilesSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   address?: boolean
   opening_time?: boolean
   closing_time?: boolean
+  discount_percent?: boolean
+  discount_thereshold?: boolean
   is_open?: boolean
+  freeDeliveryAmount?: boolean
   logo_url?: boolean
   banner_url?: boolean
   rating_avg?: boolean
@@ -701,7 +806,10 @@ export type ProviderProfilesSelectScalar = {
   address?: boolean
   opening_time?: boolean
   closing_time?: boolean
+  discount_percent?: boolean
+  discount_thereshold?: boolean
   is_open?: boolean
+  freeDeliveryAmount?: boolean
   logo_url?: boolean
   banner_url?: boolean
   rating_avg?: boolean
@@ -709,7 +817,7 @@ export type ProviderProfilesSelectScalar = {
   updated_at?: boolean
 }
 
-export type ProviderProfilesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "restaurant_name" | "description" | "address" | "opening_time" | "closing_time" | "is_open" | "logo_url" | "banner_url" | "rating_avg" | "created_at" | "updated_at", ExtArgs["result"]["providerProfiles"]>
+export type ProviderProfilesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "restaurant_name" | "description" | "address" | "opening_time" | "closing_time" | "discount_percent" | "discount_thereshold" | "is_open" | "freeDeliveryAmount" | "logo_url" | "banner_url" | "rating_avg" | "created_at" | "updated_at", ExtArgs["result"]["providerProfiles"]>
 export type ProviderProfilesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -733,7 +841,10 @@ export type $ProviderProfilesPayload<ExtArgs extends runtime.Types.Extensions.In
     address: string
     opening_time: Date
     closing_time: Date
+    discount_percent: number
+    discount_thereshold: number
     is_open: boolean
+    freeDeliveryAmount: number
     logo_url: string | null
     banner_url: string | null
     rating_avg: number
@@ -1170,7 +1281,10 @@ export interface ProviderProfilesFieldRefs {
   readonly address: Prisma.FieldRef<"ProviderProfiles", 'String'>
   readonly opening_time: Prisma.FieldRef<"ProviderProfiles", 'DateTime'>
   readonly closing_time: Prisma.FieldRef<"ProviderProfiles", 'DateTime'>
+  readonly discount_percent: Prisma.FieldRef<"ProviderProfiles", 'Float'>
+  readonly discount_thereshold: Prisma.FieldRef<"ProviderProfiles", 'Float'>
   readonly is_open: Prisma.FieldRef<"ProviderProfiles", 'Boolean'>
+  readonly freeDeliveryAmount: Prisma.FieldRef<"ProviderProfiles", 'Float'>
   readonly logo_url: Prisma.FieldRef<"ProviderProfiles", 'String'>
   readonly banner_url: Prisma.FieldRef<"ProviderProfiles", 'String'>
   readonly rating_avg: Prisma.FieldRef<"ProviderProfiles", 'Float'>

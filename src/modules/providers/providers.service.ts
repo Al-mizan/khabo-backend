@@ -5,20 +5,20 @@ import { prisma } from "../../lib/prisma";
 
 // pagination, filtering, etc. can be added later
 const getAllProviders = async () => {
-    return await prisma.user.findMany({
-        where: {
-            role: 'PROVIDER',
+    return await prisma.providerProfiles.findMany({
+        include: {
+            user: true,
         }
     });
 }
 
 const getProviderById = async (providerId: string) => {
-    return await prisma.user.findUniqueOrThrow({
+    return await prisma.providerProfiles.findUniqueOrThrow({
         where: {
             id: providerId,
         },
         include: {
-            providerProfile: true,
+            user: true,
         }
     });
 }

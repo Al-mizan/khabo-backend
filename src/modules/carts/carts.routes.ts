@@ -6,7 +6,8 @@ import { CartsController } from "./carts.controller";
 
 const router = Router();
 
-
+router.get("/count", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.getCartCount);
+router.get("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.getCart);
 router.post("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.createCart);
 router.patch("/", logger, auth(UserRole.PROVIDER, UserRole.CUSTOMER), CartsController.updateCart);
 

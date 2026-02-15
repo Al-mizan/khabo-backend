@@ -197,8 +197,63 @@ const updateCart = async (user_id: string, data: CreateCartData) => {
     });
 }
 
+const getCartCount = async (user_id: string) => {
+    const carts = await prisma.carts.findMany({
+        where: {
+            user_id,
+            status: "ACTIVE",
+        },
+        include: {
+            cartItems: true,
+        }
+    });
+
+    let totalItems = carts.length ?? 0;
+
+    return { count: totalItems };
+};
+
+const getCart = async (user_id: string) => {
+    const carts = await prisma.carts.findMany({
+        where: {
+            user_id,
+            status: "ACTIVE",
+        },
+        include: {
+            cartItems: {
+                include: {
+                    meal: {
+                        select: {
+                            id: true,
+                            name: true,
+                            image_url: true,
+                            price: true,
+                            discount_percentage: true,
+                            discount_price: true,
+                        }
+                    }
+                }
+            },
+            provider: {
+                select: {
+                    id: true,
+                    name: true,
+                    providerProfile: {
+                        select: {
+                            restaurant_name: true,
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    return carts;
+};
+
 export const CartsService = {
     createCart,
     updateCart,
-
+    getCartCount,
+    getCart,
 };

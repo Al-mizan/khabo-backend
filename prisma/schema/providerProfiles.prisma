@@ -1,18 +1,21 @@
 model ProviderProfiles {
-    id              String   @id @default(uuid())
-    user_id         String   @unique
-    user            User     @relation(fields: [user_id], references: [id])
-    restaurant_name String   @db.VarChar(500)
-    description     String?  @db.Text
-    address         String   @db.VarChar(500)
-    opening_time    DateTime @db.Time
-    closing_time    DateTime @db.Time
-    is_open         Boolean  @default(true)
-    logo_url        String?  @db.Text
-    banner_url      String?  @db.Text
-    rating_avg      Float    @default(0.0)
-    created_at      DateTime @default(now())
-    updated_at      DateTime @updatedAt
+    id                  String   @id @default(uuid())
+    user_id             String   @unique
+    user                User     @relation(fields: [user_id], references: [id])
+    restaurant_name     String   @db.VarChar(500)
+    description         String?  @db.Text
+    address             String   @db.VarChar(500)
+    opening_time        DateTime @db.Time
+    closing_time        DateTime @db.Time
+    discount_percent    Float    @default(0) // for flat discount
+    discount_thereshold Float    @default(0) // how much a customer must spend to avail this discount
+    is_open             Boolean  @default(true)
+    freeDeliveryAmount  Float    @default(0) // amount for 1st free delivery
+    logo_url            String?  @db.Text
+    banner_url          String?  @db.Text
+    rating_avg          Float    @default(0.0)
+    created_at          DateTime @default(now())
+    updated_at          DateTime @updatedAt
 
     @@map("provider_profiles")
 }

@@ -33,8 +33,41 @@ const updateCart = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+const getCartCount = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const user = req.user;
+        if (!user) {
+            throw new Error("You are Unauthorized!");
+        }
+        const result = await CartsService.getCartCount(user.id);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+const getCart = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const user = req.user;
+        if (!user) {
+            throw new Error("You are Unauthorized!");
+        }
+        const result = await CartsService.getCart(user.id);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export const CartsController = {
     createCart,
     updateCart,
-
+    getCartCount,
+    getCart,
 };
