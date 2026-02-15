@@ -18,13 +18,13 @@ const getMeals = async (req: Request, res: Response, next: NextFunction) => {
             cuisine = undefined;
         }
         const name = req.query.name as string | undefined;
-        const price = typeof req.query.price === 'string' ? Number(req.query.price) : undefined;
+        const maxPrice = typeof req.query.maxPrice === 'string' ? Number(req.query.maxPrice) : undefined;
+        const minPrice = typeof req.query.minPrice === 'string' ? Number(req.query.minPrice) : undefined;
         const { page, limit, skip, sortBy, sortOrder } = paginationSortingHelper(req.query);
 
         const result = await MealsService.getMeals({
-            name, cuisine, price, page, limit, skip, sortBy, sortOrder,
+            name, cuisine, maxPrice, minPrice, page, limit, skip, sortBy, sortOrder,
         });
-
         res.status(200).json({
             success: true,
             ...result,

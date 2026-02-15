@@ -7,6 +7,10 @@ const createCategories = (data: CategoriesUncheckedCreateInput) => {
     });
 }
 
+const getCategories = () => {
+    return prisma.categories.findMany();
+}
+
 const updateCategories = (data: CategoriesUncheckedCreateInput, id: string) => {
     return prisma.categories.update({
         where: { id },
@@ -17,5 +21,6 @@ const updateCategories = (data: CategoriesUncheckedCreateInput, id: string) => {
 export const CategoriesService = {
     createCategories,
     updateCategories,
+    getCategories,
 
 };

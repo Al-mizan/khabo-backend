@@ -31,6 +31,8 @@ export type MealsAvgAggregateOutputType = {
   discount_percentage: number | null
   discount_price: number | null
   preparation_time: number | null
+  rating_sum: number | null
+  rating_count: number | null
 }
 
 export type MealsSumAggregateOutputType = {
@@ -38,6 +40,8 @@ export type MealsSumAggregateOutputType = {
   discount_percentage: number | null
   discount_price: number | null
   preparation_time: number | null
+  rating_sum: number | null
+  rating_count: number | null
 }
 
 export type MealsMinAggregateOutputType = {
@@ -51,6 +55,8 @@ export type MealsMinAggregateOutputType = {
   discount_price: number | null
   image_url: string | null
   preparation_time: number | null
+  rating_sum: number | null
+  rating_count: number | null
   dietary_type: $Enums.DietaryType | null
   is_available: boolean | null
   created_at: Date | null
@@ -68,6 +74,8 @@ export type MealsMaxAggregateOutputType = {
   discount_price: number | null
   image_url: string | null
   preparation_time: number | null
+  rating_sum: number | null
+  rating_count: number | null
   dietary_type: $Enums.DietaryType | null
   is_available: boolean | null
   created_at: Date | null
@@ -85,6 +93,8 @@ export type MealsCountAggregateOutputType = {
   discount_price: number
   image_url: number
   preparation_time: number
+  rating_sum: number
+  rating_count: number
   dietary_type: number
   is_available: number
   created_at: number
@@ -98,6 +108,8 @@ export type MealsAvgAggregateInputType = {
   discount_percentage?: true
   discount_price?: true
   preparation_time?: true
+  rating_sum?: true
+  rating_count?: true
 }
 
 export type MealsSumAggregateInputType = {
@@ -105,6 +117,8 @@ export type MealsSumAggregateInputType = {
   discount_percentage?: true
   discount_price?: true
   preparation_time?: true
+  rating_sum?: true
+  rating_count?: true
 }
 
 export type MealsMinAggregateInputType = {
@@ -118,6 +132,8 @@ export type MealsMinAggregateInputType = {
   discount_price?: true
   image_url?: true
   preparation_time?: true
+  rating_sum?: true
+  rating_count?: true
   dietary_type?: true
   is_available?: true
   created_at?: true
@@ -135,6 +151,8 @@ export type MealsMaxAggregateInputType = {
   discount_price?: true
   image_url?: true
   preparation_time?: true
+  rating_sum?: true
+  rating_count?: true
   dietary_type?: true
   is_available?: true
   created_at?: true
@@ -152,6 +170,8 @@ export type MealsCountAggregateInputType = {
   discount_price?: true
   image_url?: true
   preparation_time?: true
+  rating_sum?: true
+  rating_count?: true
   dietary_type?: true
   is_available?: true
   created_at?: true
@@ -256,6 +276,8 @@ export type MealsGroupByOutputType = {
   discount_price: number | null
   image_url: string
   preparation_time: number
+  rating_sum: number | null
+  rating_count: number | null
   dietary_type: $Enums.DietaryType
   is_available: boolean
   created_at: Date
@@ -296,6 +318,8 @@ export type MealsWhereInput = {
   discount_price?: Prisma.FloatNullableFilter<"Meals"> | number | null
   image_url?: Prisma.StringFilter<"Meals"> | string
   preparation_time?: Prisma.IntFilter<"Meals"> | number
+  rating_sum?: Prisma.IntNullableFilter<"Meals"> | number | null
+  rating_count?: Prisma.IntNullableFilter<"Meals"> | number | null
   dietary_type?: Prisma.EnumDietaryTypeFilter<"Meals"> | $Enums.DietaryType
   is_available?: Prisma.BoolFilter<"Meals"> | boolean
   created_at?: Prisma.DateTimeFilter<"Meals"> | Date | string
@@ -318,6 +342,8 @@ export type MealsOrderByWithRelationInput = {
   discount_price?: Prisma.SortOrderInput | Prisma.SortOrder
   image_url?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrderInput | Prisma.SortOrder
+  rating_count?: Prisma.SortOrderInput | Prisma.SortOrder
   dietary_type?: Prisma.SortOrder
   is_available?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -343,6 +369,8 @@ export type MealsWhereUniqueInput = Prisma.AtLeast<{
   discount_price?: Prisma.FloatNullableFilter<"Meals"> | number | null
   image_url?: Prisma.StringFilter<"Meals"> | string
   preparation_time?: Prisma.IntFilter<"Meals"> | number
+  rating_sum?: Prisma.IntNullableFilter<"Meals"> | number | null
+  rating_count?: Prisma.IntNullableFilter<"Meals"> | number | null
   dietary_type?: Prisma.EnumDietaryTypeFilter<"Meals"> | $Enums.DietaryType
   is_available?: Prisma.BoolFilter<"Meals"> | boolean
   created_at?: Prisma.DateTimeFilter<"Meals"> | Date | string
@@ -365,6 +393,8 @@ export type MealsOrderByWithAggregationInput = {
   discount_price?: Prisma.SortOrderInput | Prisma.SortOrder
   image_url?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrderInput | Prisma.SortOrder
+  rating_count?: Prisma.SortOrderInput | Prisma.SortOrder
   dietary_type?: Prisma.SortOrder
   is_available?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -390,6 +420,8 @@ export type MealsScalarWhereWithAggregatesInput = {
   discount_price?: Prisma.FloatNullableWithAggregatesFilter<"Meals"> | number | null
   image_url?: Prisma.StringWithAggregatesFilter<"Meals"> | string
   preparation_time?: Prisma.IntWithAggregatesFilter<"Meals"> | number
+  rating_sum?: Prisma.IntNullableWithAggregatesFilter<"Meals"> | number | null
+  rating_count?: Prisma.IntNullableWithAggregatesFilter<"Meals"> | number | null
   dietary_type?: Prisma.EnumDietaryTypeWithAggregatesFilter<"Meals"> | $Enums.DietaryType
   is_available?: Prisma.BoolWithAggregatesFilter<"Meals"> | boolean
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Meals"> | Date | string
@@ -405,6 +437,8 @@ export type MealsCreateInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -427,6 +461,8 @@ export type MealsUncheckedCreateInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -445,6 +481,8 @@ export type MealsUpdateInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -467,6 +505,8 @@ export type MealsUncheckedUpdateInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -487,6 +527,8 @@ export type MealsCreateManyInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -502,6 +544,8 @@ export type MealsUpdateManyMutationInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -519,6 +563,8 @@ export type MealsUncheckedUpdateManyInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -551,6 +597,8 @@ export type MealsCountOrderByAggregateInput = {
   discount_price?: Prisma.SortOrder
   image_url?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrder
+  rating_count?: Prisma.SortOrder
   dietary_type?: Prisma.SortOrder
   is_available?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -562,6 +610,8 @@ export type MealsAvgOrderByAggregateInput = {
   discount_percentage?: Prisma.SortOrder
   discount_price?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrder
+  rating_count?: Prisma.SortOrder
 }
 
 export type MealsMaxOrderByAggregateInput = {
@@ -575,6 +625,8 @@ export type MealsMaxOrderByAggregateInput = {
   discount_price?: Prisma.SortOrder
   image_url?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrder
+  rating_count?: Prisma.SortOrder
   dietary_type?: Prisma.SortOrder
   is_available?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -592,6 +644,8 @@ export type MealsMinOrderByAggregateInput = {
   discount_price?: Prisma.SortOrder
   image_url?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrder
+  rating_count?: Prisma.SortOrder
   dietary_type?: Prisma.SortOrder
   is_available?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -603,6 +657,8 @@ export type MealsSumOrderByAggregateInput = {
   discount_percentage?: Prisma.SortOrder
   discount_price?: Prisma.SortOrder
   preparation_time?: Prisma.SortOrder
+  rating_sum?: Prisma.SortOrder
+  rating_count?: Prisma.SortOrder
 }
 
 export type MealsCreateNestedManyWithoutUserInput = {
@@ -711,6 +767,14 @@ export type NullableFloatFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type EnumDietaryTypeFieldUpdateOperationsInput = {
   set?: $Enums.DietaryType
 }
@@ -752,6 +816,8 @@ export type MealsCreateWithoutUserInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -772,6 +838,8 @@ export type MealsUncheckedCreateWithoutUserInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -821,6 +889,8 @@ export type MealsScalarWhereInput = {
   discount_price?: Prisma.FloatNullableFilter<"Meals"> | number | null
   image_url?: Prisma.StringFilter<"Meals"> | string
   preparation_time?: Prisma.IntFilter<"Meals"> | number
+  rating_sum?: Prisma.IntNullableFilter<"Meals"> | number | null
+  rating_count?: Prisma.IntNullableFilter<"Meals"> | number | null
   dietary_type?: Prisma.EnumDietaryTypeFilter<"Meals"> | $Enums.DietaryType
   is_available?: Prisma.BoolFilter<"Meals"> | boolean
   created_at?: Prisma.DateTimeFilter<"Meals"> | Date | string
@@ -836,6 +906,8 @@ export type MealsCreateWithoutCartItemsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -857,6 +929,8 @@ export type MealsUncheckedCreateWithoutCartItemsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -890,6 +964,8 @@ export type MealsUpdateWithoutCartItemsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -911,6 +987,8 @@ export type MealsUncheckedUpdateWithoutCartItemsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -928,6 +1006,8 @@ export type MealsCreateWithoutCategoryInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -948,6 +1028,8 @@ export type MealsUncheckedCreateWithoutCategoryInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -992,6 +1074,8 @@ export type MealsCreateWithoutOrderItemsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1013,6 +1097,8 @@ export type MealsUncheckedCreateWithoutOrderItemsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1046,6 +1132,8 @@ export type MealsUpdateWithoutOrderItemsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1067,6 +1155,8 @@ export type MealsUncheckedUpdateWithoutOrderItemsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1084,6 +1174,8 @@ export type MealsCreateWithoutReviewsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1105,6 +1197,8 @@ export type MealsUncheckedCreateWithoutReviewsInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1138,6 +1232,8 @@ export type MealsUpdateWithoutReviewsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1159,6 +1255,8 @@ export type MealsUncheckedUpdateWithoutReviewsInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1177,6 +1275,8 @@ export type MealsCreateManyUserInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1192,6 +1292,8 @@ export type MealsUpdateWithoutUserInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1212,6 +1314,8 @@ export type MealsUncheckedUpdateWithoutUserInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1231,6 +1335,8 @@ export type MealsUncheckedUpdateManyWithoutUserInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1247,6 +1353,8 @@ export type MealsCreateManyCategoryInput = {
   discount_price?: number | null
   image_url: string
   preparation_time: number
+  rating_sum?: number | null
+  rating_count?: number | null
   dietary_type?: $Enums.DietaryType
   is_available?: boolean
   created_at?: Date | string
@@ -1262,6 +1370,8 @@ export type MealsUpdateWithoutCategoryInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1282,6 +1392,8 @@ export type MealsUncheckedUpdateWithoutCategoryInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1301,6 +1413,8 @@ export type MealsUncheckedUpdateManyWithoutCategoryInput = {
   discount_price?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   image_url?: Prisma.StringFieldUpdateOperationsInput | string
   preparation_time?: Prisma.IntFieldUpdateOperationsInput | number
+  rating_sum?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  rating_count?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dietary_type?: Prisma.EnumDietaryTypeFieldUpdateOperationsInput | $Enums.DietaryType
   is_available?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1367,6 +1481,8 @@ export type MealsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   discount_price?: boolean
   image_url?: boolean
   preparation_time?: boolean
+  rating_sum?: boolean
+  rating_count?: boolean
   dietary_type?: boolean
   is_available?: boolean
   created_at?: boolean
@@ -1390,6 +1506,8 @@ export type MealsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   discount_price?: boolean
   image_url?: boolean
   preparation_time?: boolean
+  rating_sum?: boolean
+  rating_count?: boolean
   dietary_type?: boolean
   is_available?: boolean
   created_at?: boolean
@@ -1409,6 +1527,8 @@ export type MealsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   discount_price?: boolean
   image_url?: boolean
   preparation_time?: boolean
+  rating_sum?: boolean
+  rating_count?: boolean
   dietary_type?: boolean
   is_available?: boolean
   created_at?: boolean
@@ -1428,13 +1548,15 @@ export type MealsSelectScalar = {
   discount_price?: boolean
   image_url?: boolean
   preparation_time?: boolean
+  rating_sum?: boolean
+  rating_count?: boolean
   dietary_type?: boolean
   is_available?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type MealsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "provider_id" | "category_id" | "name" | "description" | "price" | "discount_percentage" | "discount_price" | "image_url" | "preparation_time" | "dietary_type" | "is_available" | "created_at" | "updated_at", ExtArgs["result"]["meals"]>
+export type MealsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "provider_id" | "category_id" | "name" | "description" | "price" | "discount_percentage" | "discount_price" | "image_url" | "preparation_time" | "rating_sum" | "rating_count" | "dietary_type" | "is_available" | "created_at" | "updated_at", ExtArgs["result"]["meals"]>
 export type MealsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   category?: boolean | Prisma.CategoriesDefaultArgs<ExtArgs>
@@ -1472,6 +1594,8 @@ export type $MealsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     discount_price: number | null
     image_url: string
     preparation_time: number
+    rating_sum: number | null
+    rating_count: number | null
     dietary_type: $Enums.DietaryType
     is_available: boolean
     created_at: Date
@@ -1914,6 +2038,8 @@ export interface MealsFieldRefs {
   readonly discount_price: Prisma.FieldRef<"Meals", 'Float'>
   readonly image_url: Prisma.FieldRef<"Meals", 'String'>
   readonly preparation_time: Prisma.FieldRef<"Meals", 'Int'>
+  readonly rating_sum: Prisma.FieldRef<"Meals", 'Int'>
+  readonly rating_count: Prisma.FieldRef<"Meals", 'Int'>
   readonly dietary_type: Prisma.FieldRef<"Meals", 'DietaryType'>
   readonly is_available: Prisma.FieldRef<"Meals", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"Meals", 'DateTime'>

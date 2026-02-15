@@ -206,6 +206,8 @@ export const MealsScalarFieldEnum = {
   discount_price: 'discount_price',
   image_url: 'image_url',
   preparation_time: 'preparation_time',
+  rating_sum: 'rating_sum',
+  rating_count: 'rating_count',
   dietary_type: 'dietary_type',
   is_available: 'is_available',
   created_at: 'created_at',

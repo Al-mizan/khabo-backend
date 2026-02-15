@@ -12,7 +12,9 @@ model Meals {
     discount_price      Float?       @db.DoublePrecision
     image_url           String       @db.Text
     preparation_time    Int          @db.Integer // minutes
-
+    rating_sum          Int?         @default(0) @db.Integer
+    rating_count        Int?         @default(0) @db.Integer
+    
     dietary_type        DietaryType  @default(MIX)
     is_available        Boolean      @default(true)
     created_at          DateTime     @default(now())

@@ -16,6 +16,20 @@ const createCategories = async (req: Request, res: Response, next: NextFunction)
         });
 
     } catch (err) {
+        next(err);  
+    }
+};
+
+const getCategories = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await CategoriesService.getCategories();
+        console.log(result);
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+
+    } catch (err) {
         next(err);
     }
 };
@@ -44,5 +58,6 @@ const updateCategories = async (req: Request, res: Response, next: NextFunction)
 export const CategoriesController = {
     createCategories,
     updateCategories,
+    getCategories,
 
 };
