@@ -3,47 +3,39 @@ import { prisma } from "../../lib/prisma";
 import { MealsWhereInput } from "../../../prisma/generated/prisma/models";
 import { GetMealsParams } from "./meals.interface";
 
-
+/**
+ * Get all meals with pagination, filtering & sorting
+ */
 const getMeals = async (query: GetMealsParams) => {
-    const { name, cuisine, price, page, limit, skip, sortBy, sortOrder } = query;
+    const { page, limit, skip, sortBy, sortOrder, name, cuisine, price } = query;
 
     const andConditions: MealsWhereInput[] = [];
 
+    // Search by meal name
     if (name) {
         andConditions.push({
-            name: {
-                contains: name,
-                mode: "insensitive"
-            }
+            name: { contains: name, mode: "insensitive" },
         });
     }
+
+    // Filter by cuisine / category
     if (cuisine) {
         if (Array.isArray(cuisine)) {
-            andConditions.push({
-                category: {
-                    name: {
-                        in: cuisine
-                    }
-                }
-            });
+            andConditions.push({ category: { name: { in: cuisine } } });
         } else {
-            andConditions.push({
-                category: { name: cuisine }
-            });
+            andConditions.push({ category: { name: cuisine } });
         }
     }
+
+    // Filter by max price
     if (price !== undefined) {
-        andConditions.push({
-            price: {
-                lte: price
-            }
-        });
+        andConditions.push({ price: { lte: price } });
     }
 
+    const where: MealsWhereInput =
+        andConditions.length > 0 ? { AND: andConditions } : {};
 
-    const where = andConditions.length > 0 ? { AND: andConditions } : {};
-
-    const [meals, total] = await Promise.all([
+    const [data, total] = await Promise.all([
         prisma.meals.findMany({
             where,
             skip,
@@ -55,7 +47,7 @@ const getMeals = async (query: GetMealsParams) => {
     ]);
 
     return {
-        data: meals,
+        data,
         meta: {
             total,
             page,

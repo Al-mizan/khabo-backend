@@ -18,6 +18,7 @@ const sortableFields = [
     'price',
     'name',
     'updated_at',
+    'rating_avg',
 ] as const;
 
 type SortField = typeof sortableFields[number];

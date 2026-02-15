@@ -27,7 +27,7 @@ const getMeals = async (req: Request, res: Response, next: NextFunction) => {
 
         res.status(200).json({
             success: true,
-            data: result,
+            ...result,
         });
     } catch (err) {
         next(err);
