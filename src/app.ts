@@ -18,6 +18,8 @@ const app: Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.set("trust proxy", 1); // Important for Render behind proxy
 app.use(cors({
     origin: [APP_URL as string, PUBLIC_APP_URL as string],
     credentials: true,

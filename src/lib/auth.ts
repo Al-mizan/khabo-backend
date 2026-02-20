@@ -144,8 +144,31 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
-  trustedOrigins: [PUBLIC_APP_URL as string, PUBLIC_BETTER_AUTH_URL as string],
+  trustedOrigins: [
+    PUBLIC_APP_URL as string,
+    PUBLIC_BETTER_AUTH_URL as string,
+    APP_URL as string,
+  ],
   baseURL: PUBLIC_BETTER_AUTH_URL,
+  cookies: {
+    sessionToken: {
+      name: "khabo-session",
+      options: {
+        httpOnly: true,
+        sameSite: "none", // MUST for cross-site OAuth
+        secure: true,     // MUST for HTTPS (Vercel + Render)
+        path: "/",
+      },
+    },
+    state: {
+      name: "khabo-oauth-state",
+      options: {
+        sameSite: "none",
+        secure: true,
+        path: "/",
+      },
+    },
+  },
   user: {
     additionalFields: {
       role: {
