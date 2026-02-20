@@ -13,6 +13,7 @@ import { adminRoutes } from './modules/admin/admin.routes';
 import { cartsRoutes } from './modules/carts/carts.routes';
 import { mealsRoutes } from './modules/meals/meals.routes';
 import { reviewsRoutes } from './modules/reviews/reviews.routes';
+import { socialLogin } from './middleware/social-login';
 
 const app: Application = express();
 
@@ -28,6 +29,9 @@ app.use(cors({
 app.get('/', (req, res) => {
     res.status(200).json("FoodHub API is running!");
 });
+
+// Custom GET endpoint for social login - avoids cross-origin cookie issues
+app.get('/api/auth/social-login', socialLogin);
 
 app.all('/api/auth/{*any}', toNodeHandler(auth));
 app.use('/api/users', userRoutes);
