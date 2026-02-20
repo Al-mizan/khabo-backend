@@ -2,7 +2,7 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import nodemailer from "nodemailer";
 import { prisma } from "./prisma";
-import { APP_URL, BETTER_AUTH_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER } from "../config/env";
+import { APP_URL, BETTER_AUTH_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, PUBLIC_APP_URL, PUBLIC_BETTER_AUTH_URL, SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER } from "../config/env";
 import { UserRole } from '../constants/roles';
 
 
@@ -144,8 +144,8 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
-  trustedOrigins: [APP_URL as string, BETTER_AUTH_URL as string],
-  baseURL: BETTER_AUTH_URL,
+  trustedOrigins: [PUBLIC_APP_URL as string, PUBLIC_BETTER_AUTH_URL as string],
+  baseURL: PUBLIC_BETTER_AUTH_URL,
   user: {
     additionalFields: {
       role: {

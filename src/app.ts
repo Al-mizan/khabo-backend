@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import cors from 'cors';
-import { APP_URL } from './config/env';
+import { APP_URL, PUBLIC_APP_URL } from './config/env';
 import { toNodeHandler } from 'better-auth/node';
 import { auth } from './lib/auth';
 import { notFoundRoute } from './middleware/notFoundRoute';
@@ -19,7 +19,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: APP_URL,
+    origin: [APP_URL as string, PUBLIC_APP_URL as string],
     credentials: true,
 }));
 

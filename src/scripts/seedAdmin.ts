@@ -1,6 +1,6 @@
 import { UserRole } from '../constants/roles';
 import { prisma } from '../lib/prisma';
-import { APP_URL, BETTER_AUTH_URL } from '../config/env';
+import { PUBLIC_APP_URL, PUBLIC_BETTER_AUTH_URL } from '../config/env';
 
 async function seedAdmin() {
     try {
@@ -18,11 +18,11 @@ async function seedAdmin() {
             throw new Error("Admin user already exists");
         }
 
-        const signUpAdmin = await fetch(`${BETTER_AUTH_URL}/api/auth/sign-up/email`, {
+        const signUpAdmin = await fetch(`${PUBLIC_BETTER_AUTH_URL}/api/auth/sign-up/email`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Origin": APP_URL as string
+                "Origin": PUBLIC_APP_URL as string
             },
             body: JSON.stringify(adminData)
         })
