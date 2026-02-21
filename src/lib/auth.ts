@@ -145,40 +145,10 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
   trustedOrigins: [
-    PUBLIC_APP_URL as string,
-    PUBLIC_BETTER_AUTH_URL as string,
-    APP_URL as string,
+    PUBLIC_APP_URL as string, // PUBLIC_APP_URL=https://khabo.vercel.app
+    APP_URL as string,  // APP_URL=http://localhost:3000
   ],
-  baseURL: PUBLIC_BETTER_AUTH_URL,
-  cookies: {
-    sessionToken: {
-      name: "khabo-session",
-      options: {
-        httpOnly: true,
-        sameSite: "none", // MUST for cross-site OAuth
-        secure: true,     // MUST for HTTPS (Vercel + Render)
-        path: "/",
-      },
-    },
-    state: {
-      name: "khabo-oauth-state",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-        path: "/",
-      },
-    },
-    pkCodeVerifier: {
-      name: "khabo-pk-code-verifier",
-      options: {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-        path: "/",
-      },
-    },
-  },
+  baseURL: PUBLIC_BETTER_AUTH_URL,  // Backend URL — Better-Auth runs here
   user: {
     additionalFields: {
       role: {
@@ -223,6 +193,10 @@ export const auth = betterAuth({
       prompt: "select_account",
       clientId: GOOGLE_CLIENT_ID as string,
       clientSecret: GOOGLE_CLIENT_SECRET as string,
+      // Route OAuth callback through the frontend proxy so cookies stay on the
+      // same origin. Without this, Better-Auth generates a callback URL using
+      // baseURL (backend domain) and the browser can't forward the state cookie.
+      redirectURI: `${PUBLIC_APP_URL}/api/auth/callback/google`,
     },
   },
   // emailVerification: {
